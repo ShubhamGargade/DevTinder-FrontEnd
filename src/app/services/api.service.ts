@@ -37,4 +37,10 @@ export class ApiService {
       withCredentials: true
     });
   }
+
+  editUserProfile(editUserData: any): Observable<object>{
+    return this.http.patch(GlobalURL.BaseURL + 'profile/edit', editUserData, {
+      withCredentials: true
+    })
+  }
 }

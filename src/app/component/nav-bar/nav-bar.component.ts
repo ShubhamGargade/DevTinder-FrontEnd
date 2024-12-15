@@ -3,7 +3,7 @@ import { State, Store } from '@ngrx/store';
 import { userState } from '../../appStore/store.state';
 import { ApiService } from '../../services/api.service';
 import { Router, RouterLink } from '@angular/router';
-import { removeUser } from '../../appStore/store.action';
+import { removeFeed, removeUser } from '../../appStore/store.action';
 
 @Component({
   selector: 'app-nav-bar',
@@ -45,6 +45,7 @@ export class NavBarComponent implements OnInit {
     this.apiService.logOutUser().subscribe({
       next: (res) => {
         this.store.dispatch(removeUser());
+        this.store.dispatch(removeFeed());
         this.router.navigateByUrl('/login');
       },
       error: (err) => {

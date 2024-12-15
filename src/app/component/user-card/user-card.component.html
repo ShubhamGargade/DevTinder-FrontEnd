@@ -1,0 +1,14 @@
+<div class="card bg-base-300 w-96 shadow-xl m-auto my-10">
+    <figure class="h-80">
+        <img [src]="userData['photoUrl']" alt="Shoes" />
+    </figure>
+    <div class="card-body">
+        <h2 class="card-title">{{userData['firstName'] +' '+ userData['lastName']}}</h2>
+        <p>{{userData['gender']}}</p>
+        <p>{{userData['about']}}</p>
+        <div class="card-actions justify-end">
+            <button class="btn btn-secondary">Ignore</button>
+            <button class="btn btn-primary">Interested</button>
+        </div>
+    </div>
+</div>

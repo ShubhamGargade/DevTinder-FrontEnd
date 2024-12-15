@@ -3,11 +3,12 @@ import { ApiService } from '../../services/api.service';
 import { State, Store } from '@ngrx/store';
 import { addFeed } from '../../appStore/store.action';
 import { feedState } from '../../appStore/store.state';
+import { UserCardComponent } from '../user-card/user-card.component';
 
 @Component({
   selector: 'app-feed',
   standalone: true,
-  imports: [],
+  imports: [UserCardComponent],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss'
 })
