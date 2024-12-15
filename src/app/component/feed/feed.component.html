@@ -1,0 +1,17 @@
+@if(feedData.length > 0){
+    @for (item of feedData; track $index) {
+        <div class="card bg-base-100 w-96 shadow-xl m-auto my-10">
+            <figure class="h-80">
+                <img [src]="item['photoUrl']" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">{{item['firstName'] +' '+ item['lastName']}}</h2>
+                <p>{{item['about']}}</p>
+                <div class="card-actions justify-end">
+                    <button class="btn btn-secondary">Ignore</button>
+                    <button class="btn btn-primary">Interested</button>
+                </div>
+            </div>
+        </div>
+    }
+}

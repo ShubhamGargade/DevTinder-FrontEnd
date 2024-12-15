@@ -1,1 +1,35 @@
-<p>login works!</p>
+<div class="card bg-gray-600 text-neutral-content w-96 m-auto mt-10">
+    <div class="card-body">
+
+        <!-- Card Title  -->
+        <h2 class="card-titl text-center font-bold">Login</h2>
+
+        <!-- Card Input Form  -->
+
+        <form [formGroup]="loginForm" (ngSubmit)="logInUser()">
+            <!-- Email Input  -->
+            <label class="form-control w-full max-w-xs">
+                <div class="label">
+                    <span class="label-text">Email</span>
+                </div>
+                <input type="email" placeholder="Enter email" class="input input-bordered w-full max-w-xs" formControlName="emailId" />
+            </label>
+
+            <!-- Password Input  -->
+            <label class="form-control w-full max-w-xs">
+                <div class="label">
+                    <span class="label-text">Password</span>
+                </div>
+                <input type="password" placeholder="Enter password" class="input input-bordered w-full max-w-xs" formControlName="password" />
+            </label>
+
+            @if (!!errorMessage) {
+                <p class="text-red-500 mt-10">{{errorMessage}}</p>
+            }
+            
+            <div class="card-actions justify-center mt-10">
+                <button class="btn">Log In</button>
+            </div>
+        </form>
+    </div>
+</div>
