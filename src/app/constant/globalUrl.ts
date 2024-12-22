@@ -1,3 +1,4 @@
+import { config } from '../../environment/environment'
 export const GlobalURL = {
-    BaseURL: 'http://localhost:3000/'
+    BaseURL: config.serverURL
 }
