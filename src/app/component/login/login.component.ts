@@ -25,8 +25,8 @@ export class LoginComponent {
     private store: Store<userState>
   ){
     this.loginForm = this.loginFormBuilder.group({
-      emailId: new FormControl('Virat@gmail.com'),
-      password: new FormControl('Virat@1234')
+      emailId: new FormControl(''),
+      password: new FormControl('')
     });
   }
 
