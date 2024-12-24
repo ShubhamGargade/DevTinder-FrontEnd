@@ -9,7 +9,7 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/dist/index.html"
+        "dest": "/dist/dev-tinder-front-end/browser/index.html"
       }
     ]
 }
