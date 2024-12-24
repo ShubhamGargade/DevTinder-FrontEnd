@@ -1,4 +1,4 @@
-import { config } from '../../environment/environment'
+import { environment } from '../../environments/environment.development'
 export const GlobalURL = {
-    BaseURL: config.serverURL
+    BaseURL: environment.serverUrl
 }
