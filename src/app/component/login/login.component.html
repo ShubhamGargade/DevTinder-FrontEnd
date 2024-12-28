@@ -28,8 +28,14 @@
             }
             
             <div class="card-actions justify-center mt-10">
-                <button class="btn">Log In</button>
+                <button [disabled]="loginForm.invalid" class="btn btn-primary">Log In</button>
             </div>
         </form>
+    </div>
+</div>
+
+<div class="flex justify-center mt-10">
+    <div>
+        <button class="btn btn-accent" routerLink="/signin">Create an account</button>
     </div>
 </div>

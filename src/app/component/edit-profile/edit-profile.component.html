@@ -2,7 +2,14 @@
     <div class="card bg-gray-600 text-neutral-content w-96 mt-10">
         <div class="card-body">
             <!-- Card Title  -->
-            <h2 class="card-titl text-center font-bold">Edit Profile</h2>
+            <h2 class="card-titl text-center font-bold">
+                @if(isEditProfile()){
+                Edit Profile
+                }
+                @else {
+                Create Profile
+                }
+            </h2>
 
             <form [formGroup]="editProfileForm" (ngSubmit)="saveProfile()">
                 <!-- FirstName Input  -->
@@ -23,13 +30,34 @@
                         formControlName="lastName" />
                 </label>
 
+                @if(!isEditProfile()){
+                <!-- Email Input  -->
+                <label class="form-control w-full max-w-xs">
+                    <div class="label">
+                        <span class="label-text">Email</span>
+                    </div>
+                    <input type="email" placeholder="Enter Email" class="input input-bordered w-full max-w-xs"
+                        formControlName="emailId" />
+                </label>
+
+                <!-- Password Input  -->
+                <label class="form-control w-full max-w-xs">
+                    <div class="label">
+                        <span class="label-text">Password</span>
+                    </div>
+                    <input type="password" placeholder="Enter Password" class="input input-bordered w-full max-w-xs"
+                        formControlName="password" />
+                </label>
+                }
+
                 <!-- Gender Input  -->
                 <label class="form-control w-full max-w-xs">
                     <div class="label">
                         <span class="label-text">Gender</span>
                     </div>
                     <div class="dropdown">
-                        <select class="input input-bordered w-full max-w-xs" name="" id="" formControlName="gender">
+                        <select class="input input-bordered w-full max-w-xs" formControlName="gender">
+                            <option value="">Select Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Others">Others</option>
@@ -42,7 +70,7 @@
                     <div class="label">
                         <span class="label-text">PhotoUrl</span>
                     </div>
-                    <input type="text" placeholder="Enter Gender" class="input input-bordered w-full max-w-xs"
+                    <input type="text" placeholder="Enter PhotoUrl" class="input input-bordered w-full max-w-xs"
                         formControlName="photoUrl" />
                 </label>
 
@@ -69,20 +97,22 @@
                 }
 
                 <div class="card-actions justify-center mt-10">
-                    <button class="btn btn-primary">Save Profile</button>
+                    <button [disabled]="editProfileForm.invalid" class="btn btn-success">Save Profile</button>
                 </div>
             </form>
         </div>
     </div>
 
     <div>
+        <h4 class="flex justify-center items-center mt-10">Preview Profile</h4>
         <app-user-card [userData]="editProfileForm.value" />
     </div>
 </div>
-@if(isDataEdited){
+
+@if(isDataSaved){
 <div class="toast toast-top toast-center">
     <div class="alert alert-success">
-        <span>User Data Edited Successfully.</span>
+        <span>{{alertMessage}}</span>
     </div>
 </div>
 }

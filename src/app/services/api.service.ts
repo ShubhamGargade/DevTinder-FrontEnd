@@ -43,4 +43,10 @@ export class ApiService {
       withCredentials: true
     })
   }
+
+  signInUser(userData: object): Observable<any>{
+    return this.http.post(GlobalURL.BaseURL + "signin", userData, {
+      withCredentials: true
+    });
+  }
 }

@@ -1,8 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
 import { FeedComponent } from './component/feed/feed.component';
-import { authGuard } from './guards/auth.guard';
-import { ProfileComponent } from './component/profile/profile.component';
 
 export const routes: Routes = [
     {
@@ -19,6 +17,10 @@ export const routes: Routes = [
     },
     {
         path: 'profile',
-        component: ProfileComponent
+        loadComponent: () => import('./component/profile/profile.component').then(c => c.ProfileComponent)
+    },
+    {
+        path: 'signin',
+        loadComponent: () => import ('./component/signin/signin.component').then(c => c.SigninComponent)
     }
 ];

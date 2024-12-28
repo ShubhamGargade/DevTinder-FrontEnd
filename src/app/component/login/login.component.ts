@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Store } from '@ngrx/store';
 import { addUser } from '../../appStore/store.action';
 import { userState } from '../../appStore/store.state';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -25,8 +25,8 @@ export class LoginComponent {
     private store: Store<userState>
   ){
     this.loginForm = this.loginFormBuilder.group({
-      emailId: new FormControl(''),
-      password: new FormControl('')
+      emailId: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
     });
   }
 
