@@ -1,0 +1,35 @@
+@if(requestData.length === 0){
+<h2 class="text-center text-xl my-5 font-bold">No Requests Found</h2>
+}
+@else {
+<h2 class="text-center text-xl my-5 font-bold">Requests to Connect</h2>
+
+@for(request of requestData; track request['_id']){
+<div class="flex justify-between items-center p-5 bg-base-300 w-9/12 m-auto my-10 rounded-badge">
+    <div class="flex gap-5 items-center">
+        <img [src]="request.fromUserId.photoUrl" class="w-20 h-20 rounded-full shadow-2xl object-cover" />
+        <div>
+            <h5 class="text-xl font-bold">{{request.fromUserId.firstName + ' ' + request.fromUserId.lastName}}</h5>
+            <p class="pt-2">
+                {{request.fromUserId.age + ", " + request.fromUserId.gender}}
+            </p>
+            <p class="py-2">
+                {{request.fromUserId.about}}
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <button class="btn btn-primary mx-2 my-2" (click)="requestAction('rejected', request['_id'])">Reject</button>
+        <button class="btn btn-secondary mx-2 my-2" (click)="requestAction('accepted', request['_id'])">Accept</button>
+    </div>
+</div>
+}
+}
+@if(isRequestSend){
+    <div class="toast toast-top toast-center">
+        <div class="alert alert-success">
+            <span>{{alertMessage}}</span>
+        </div>
+    </div>
+}

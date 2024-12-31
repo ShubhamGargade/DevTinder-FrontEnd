@@ -1,0 +1,23 @@
+@if(connectionsData.length === 0){
+<h2 class="text-center text-xl my-5 font-bold">No Connections Found</h2>
+}
+@else{
+<h2 class="text-center text-xl my-5 font-bold">My Connections</h2>
+
+@for(user of connectionsData; track user['_id']){
+<div class="flex justify-between items-center p-5 bg-base-300 w-2/5 m-auto my-10 rounded-badge">
+    <div class="flex gap-5 items-center">
+        <img [src]="user.photoUrl" class="w-20 h-20 rounded-full shadow-2xl object-cover" />
+        <div>
+            <h5 class="text-xl font-bold">{{user.firstName + ' ' + user.lastName}}</h5>
+            <p class="pt-2">
+                {{user.age + ", " + user.gender}}
+            </p>
+            <p class="py-2">
+                {{user.about}}
+            </p>
+        </div>
+    </div>
+</div>
+}
+}

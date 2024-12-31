@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
       next: (res) => {
         if (res) {
           this.store.dispatch(addUser({ user: res }));
-          this.router.navigateByUrl('/feed');
+          // this.router.navigateByUrl('/feed');
         }
       },
       error: (error) => {
