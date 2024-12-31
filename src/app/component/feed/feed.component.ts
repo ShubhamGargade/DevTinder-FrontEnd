@@ -34,7 +34,9 @@ export class FeedComponent implements OnInit {
               if(res['data'].length > 0){
                 this.store.dispatch(addFeed({ feedData: res['data'] }));
                 this.feedData = res['data'];
-                console.log('fddd ', res['data']);
+              }
+              else{
+                this.feedData = [];
               }
             },
             error: (error) => {

@@ -68,4 +68,10 @@ export class ApiService {
     })
   }
 
+  feedAction(requestStatus: string, userId: string): Observable<object>{
+    return this.http.post(GlobalURL.BaseURL + "request/connect/" + requestStatus + "/" + userId, {}, {
+      withCredentials: true
+    })
+  }
+
 }

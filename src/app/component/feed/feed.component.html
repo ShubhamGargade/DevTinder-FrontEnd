@@ -1,8 +1,6 @@
 @if(feedData.length > 0){
-    @for (item of feedData; track $index) {
-        <app-user-card [userData]="item" />
-    }
+<app-user-card [userData]="feedData[0]" />
 }
 @else{
-    <h2 class="text-center text-xl my-5 font-bold">No Data Found</h2>
+<h2 class="text-center text-xl my-5 font-bold">No new user found</h2>
 }
