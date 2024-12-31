@@ -53,4 +53,10 @@ export class NavBarComponent implements OnInit {
       },
     })
   }
+  
+  redirect() {
+    if(this.isLoggedIn){
+      this.router.navigateByUrl('/feed');
+    }
+  }
 }
